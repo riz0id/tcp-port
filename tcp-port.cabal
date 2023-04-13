@@ -1,0 +1,60 @@
+cabal-version: 2.4
+
+name:        tcp-port
+category:    Data
+version:     1.0.0
+synopsis:    TODO 
+description: TODO 
+
+author:       jacob leach
+maintainer:   jacobleach@protonmail.com
+copyright:    2023, Jacob Leach
+homepage:     https://github.com/riz0id/tcp-port
+license:      ISC
+license-file: LICENSE
+build-type:   Simple
+
+extra-source-files:
+  CHANGELOG.md
+  README.md
+
+tested-with:
+  GHC == 9.2.4
+
+source-repository head
+  type:     git
+  location: https://github.com/riz0id/tcp-port
+
+common common
+  default-language: Haskell2010
+
+  default-extensions:
+    BangPatterns BlockArguments DeriveDataTypeable DeriveGeneric DeriveLift 
+    DerivingStrategies ImportQualifiedPost LambdaCase MagicHash RankNTypes 
+    ScopedTypeVariables TypeApplications
+
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wcpp-undef
+    -Widentities
+    -Wmissing-export-lists
+
+    -- Build with `-haddock` to the haskell-language-server feature that 
+    -- displays documentation on hover.
+    -haddock
+
+  build-depends:
+    , base >= 4.15.1 && < 4.18
+
+library
+  import:         common
+  hs-source-dirs: src
+
+  build-depends:
+    , bytestring       >= 0.11.3 && < 0.12
+    , template-haskell >= 2.18.0 && < 2.19
+
+  exposed-modules:
+    Web.Port
+    Web.Port.TH
