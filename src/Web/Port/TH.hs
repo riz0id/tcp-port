@@ -80,21 +80,24 @@ port =
     , quoteDec  = \_ -> fail "quasiport: not supported in declaration contexts"
     }
 
--- | TODO: docs
+-- | 'Port' expression quasi-quoter. Reads a TCP 'Port' from a string literal 
+-- and lifts it to a Haskell expression.
 --
 -- @since 1.0.0
 quotePortAsExp :: String -> Q Exp
 quotePortAsExp = fmap liftPortAsExp . parsePortQ 
 {-# INLINEABLE quotePortAsExp #-}
 
--- | TODO: docs
+-- | 'Port' expression quasi-quoter. Reads a TCP 'Port' from a string literal 
+-- and lifts it to a Haskell pattern.
 --
 -- @since 1.0.0
 quotePortAsPat :: String -> Q Pat
 quotePortAsPat = fmap liftPortAsPat . parsePortQ
 {-# INLINEABLE quotePortAsPat #-}
 
--- | TODO: docs
+-- | 'Port' expression quasi-quoter. Reads a TCP 'Port' from a string literal 
+-- and lifts it to a Haskell type-level literal.
 --
 -- @since 1.0.0
 quotePortAsType :: String -> Q Type
