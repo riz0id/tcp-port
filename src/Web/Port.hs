@@ -61,10 +61,11 @@ import Language.Haskell.TH.Syntax (Lift)
 -- @since 1.0.0
 newtype Port
   = Port { getPort :: Word16 }
-  deriving newtype (Enum, Eq, Num, Ord, Show)
+  deriving newtype (Bounded, Enum, Eq, Num, Ord, Show)
   deriving stock (Data, Generic, Lift)
 
--- | TODO: docs 
+-- | Pattern synonym for matching against the unboxed 'Word16#' representing 
+-- the 'Port' number.
 --
 -- @since 1.0.0
 pattern Port# :: Word16# -> Port
